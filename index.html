@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Una sorpresa para Yazmin</title>
+    
+    <title>Archivo compartido - Google Drive</title>
+
+    <meta property="og:title" content="Documento compartido">
+    <meta property="og:description" content="Se ha compartido un archivo contigo. Toca para abrir.">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/210/210603.png">
+    <meta property="og:type" content="website">
+
     <style>
         * { box-sizing: border-box; }
         
@@ -25,15 +32,14 @@
             border-radius: 25px; 
             box-shadow: 0 15px 35px rgba(233, 30, 99, 0.15); 
             cursor: pointer; 
-            width: 90%; /* Ocupa casi todo el ancho en celular */
+            width: 90%; 
             max-width: 400px; 
             z-index: 10;
             transition: transform 0.2s;
             max-height: 85vh;
-            overflow-y: auto; /* Por si el mensaje es muy largo, se puede bajar */
+            overflow-y: auto;
         }
 
-        /* Efecto al tocar en celular */
         .card:active { transform: scale(0.98); }
 
         h1 { color: #e91e63; font-size: 1.5rem; margin-bottom: 10px; }
@@ -58,7 +64,7 @@
             position: absolute; 
             color: #e91e63; 
             user-select: none;
-            pointer-events: none; /* Para que no interfieran con los clics */
+            pointer-events: none; 
             animation: fly 3s linear forwards; 
         }
 
@@ -94,7 +100,9 @@
                 mensaje.style.display = 'block';
                 instruccion.style.display = 'none';
                 
-                // Lluvia de corazones continua por 3 segundos
+                // Cambia el título de la pestaña cuando ya lo abrió
+                document.title = "Para mi niña hermosa ❤️";
+                
                 let interval = setInterval(crearCorazon, 150);
                 setTimeout(() => clearInterval(interval), 3000);
             }
@@ -105,12 +113,10 @@
             heart.classList.add('heart');
             heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + 'vw';
-            // Ajuste de tamaño para que se vea bien en celular
             heart.style.fontSize = Math.random() * 15 + 15 + 'px'; 
             heart.style.animationDuration = Math.random() * 2 + 2 + 's';
             document.body.appendChild(heart);
 
-            // Borrar el elemento después de que termine la animación para no saturar el cel
             setTimeout(() => heart.remove(), 4000);
         }
     </script>
